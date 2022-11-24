@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'League Spartan', sans-serif;
+}
+
+.root {
+    margin: 0;
+}
+
+.intro-container {
+
+}
+
+.intro {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;   
+    position: relative;
+}
+
+.intro-left {
+    height: 100%;
+    width: 100%;
+    border: 1px solid red;
+    background: linear-gradient(90deg, black 50%, white 50%);
+}
