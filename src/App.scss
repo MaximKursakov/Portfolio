@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$blue-dark : #437FC7;
+$blue-light : #6DAFFE;
+$grey : #EDF6FF;
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin position-center {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    left: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'League Spartan', sans-serif;
+    background-color: white;
+}
+
+.intro-container {
+    @include flex-center();
+    height: 100vh;
+}
+
+.intro {
+    width: 95vw;
+    height: 90vh;
+    overflow: hidden;   
+    position: relative;
+}
+
+.intro-left {
+    height: 100%;
+    width: 100%;
+}
+
+.bird {
+    position: absolute;
+    top: 40%;
+    bottom: 0%;
+    left: 70%;
+    right: 25%;
+}
+
+.welcome {
+    @include position-center();
+    @include flex-center();
+    height: 100vh;
+    flex-direction: column;
+    font-size: 10rem;
+    font-weight: 900;
+}
+
+.welcome-top, .welcome-bottom {
+    @include flex-center();
+    height: 200px;
+    width: 40vw;
+}
+
+circle {
+    stroke-width: 20px;
+    stroke-linecap:square;
+    fill: transparent;
+  }
+
+  .circle {
+      margin-top: auto;
+  }
+
+

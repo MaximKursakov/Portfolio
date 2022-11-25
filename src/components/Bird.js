@@ -28,11 +28,11 @@ export function Bird({introLevel, color, visibility}) {
         }
     }
     return (
+        <div className="bird">
         <motion.svg 
                 initial={{left: "70%", right: "25%"}}
                 variants={birdMovement}
                 animate={["hover", "rotate", "rotateBack", "visibility",  "fly"]}
-                className="bird-svg"    
                 width="185" height="194" viewBox="0 0 185 194" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="Frame 1">
                         <rect x="0.5" y="0.5" width="181" height="187" fill="transparent"/>
@@ -62,5 +62,6 @@ export function Bird({introLevel, color, visibility}) {
                     </g>
                     </g>
                 </motion.svg>
+                </div>
     )
 }
