@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 $blue-dark : #437FC7;
 $blue-light : #6DAFFE;
@@ -26,6 +26,17 @@ body {
 .intro-container {
     @include flex-center();
     height: 100vh;
+    position: relative;
+}
+
+.portfolio-title {
+    position: absolute;
+    top: 0;
+    left: 3vw;
+    font-family: 'DM Serif Display', serif;
+    color: #1c1b20;
+    font-size: 1.2rem;
+    margin: 1vh 0 0 0;
 }
 
 .intro {
@@ -35,7 +46,7 @@ body {
     position: relative;
 }
 
-.intro-left {
+.intro-hero {
     height: 100%;
     width: 100%;
 }
@@ -68,6 +79,7 @@ circle {
     stroke-linecap:square;
     fill: transparent;
   }
+
 
   .circle {
       margin-top: auto;

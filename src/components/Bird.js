@@ -11,28 +11,34 @@ export function Bird({introLevel, color, visibility}) {
             transition: {duration: 1, yoyo: Infinity, type:"tween"},
         },
         rotate: {
-            rotateZ: introLevel === 2 ? [0, -45, 0] : 0,
+            rotateZ: 
+                introLevel === 2 ? [0, -45, 0]
+                : introLevel === 3 ? [0, -60, 0] 
+                : introLevel === 4 ? [0, 25, 0] : 0,
             transition: {duration: .8}
         },
-        // rotateBack: {
-        //     rotateZ: introLevel === 2 ? [0, 45, 0] : 0,
-        //     transition: {delay: 1, duration: .2}
-        // },
         fly: {
-            translateX: introLevel === 2 ? "-50vw" : 0,
+            translateX: introLevel === 2 ? "-50vw" : 
+                        introLevel === 3 ? "-25vw" :
+                        introLevel === 4 ? "-25vw" : 0,
+            translateY: introLevel === 3 ? "25vh" 
+                        : introLevel === 4 ? "-75vh" : 0,
             transition: {duration: .8, delay: .2}
         },
         visibility: {
             visibility: visibility ? "shown" : "hidden",
-            transition: {delay: .6}
+            transition: {delay: introLevel < 4 ? .6 : .45}
+        },
+        turn: {
+            rotateY: introLevel >= 3 ? 180 : 0
         }
     }
     return (
         <div className="bird">
         <motion.svg 
-                initial={{left: "70%", right: "25%"}}
+                initial="initial"
                 variants={birdMovement}
-                animate={["hover", "rotate", "rotateBack", "visibility",  "fly"]}
+                animate={["hover", "rotate", "rotateBack", "visibility",  "fly", "turn"]}
                 width="185" height="194" viewBox="0 0 185 194" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="Frame 1">
                         <rect x="0.5" y="0.5" width="181" height="187" fill="transparent"/>

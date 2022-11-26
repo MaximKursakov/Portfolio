@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
-export function WelcomeTop () {
+export function WelcomeTop ({introLevel}) {
     const draw = {
         hidden: { pathLength: 0, opacity: 0 },
         visible: (i) => {
-          const delay = 1 + i / 3;
+          const delay = 0.5 + i / 3;
           return {
             pathLength: 1,
             opacity: 1,
@@ -16,9 +16,14 @@ export function WelcomeTop () {
         }
       };
 
+      const strokeColor = "#1C1B20"
+
 return(
-    <div>
-        <svg 
+    <motion.div
+    initial={{x : 0}}
+    animate={{x: introLevel >= 2 ? "-100vw" : 0,}}
+    transition={{duration: 1}}>
+        <motion.svg 
         width="500" 
         height="400" 
         viewBox="0 0 199 165" 
@@ -33,30 +38,30 @@ return(
                 <mask id="path-2-inside-1_3_21" fill="white">
                     <motion.path variants={draw} initial="hidden" animate="visible" custom={0} className="welcome-text" d="M172 128C172 147.882 155.882 164 136 164C116.118 164 100 147.882 100 128C100 108.118 116.118 92 136 92C155.882 92 172 108.118 172 128Z"/>
                 </mask>
-                    <motion.path variants={draw} initial="hidden" animate="visible" custom={0} className="welcome-text" d="M172 128C172 147.882 155.882 164 136 164C116.118 164 100 147.882 100 128C100 108.118 116.118 92 136 92C155.882 92 172 108.118 172 128Z" stroke="#1C1B20" stroke-width="32" mask="url(#path-2-inside-1_3_21)"/>
+                    <motion.path variants={draw} initial="hidden" animate="visible" custom={0} className="welcome-text" d="M172 128C172 147.882 155.882 164 136 164C116.118 164 100 147.882 100 128C100 108.118 116.118 92 136 92C155.882 92 172 108.118 172 128Z" stroke={strokeColor} strokeWidth="32" mask="url(#path-2-inside-1_3_21)"/>
                 </g>
                 </g>
                 <g id="H">
-                    <motion.path variants={draw} initial="hidden" animate="visible" custom={1} className="welcome-text" id="Waag" d="M17.0263 37.1309L37.8148 37.024" stroke="#1C1B20" stroke-width="16"/>
-                    <motion.path variants={draw} initial="hidden" animate="visible" custom={0} className="welcome-text" id="Senk1" d="M9.36998 73.0044L9.3763 0.999999" stroke="#1C1B20" stroke-width="16"/>
-                    <motion.path variants={draw} initial="hidden" animate="visible" custom={2} className="welcome-text" id="Senk2" d="M45.37 73.0044L45.3763 0.999999" stroke="#1C1B20" stroke-width="16"/>
+                    <motion.path variants={draw} initial="hidden" animate="visible" custom={1} className="welcome-text" id="Waag" d="M17.0263 37.1309L37.8148 37.024" stroke={strokeColor} strokeWidth="16"/>
+                    <motion.path variants={draw} initial="hidden" animate="visible" custom={0} className="welcome-text" id="Senk1" d="M9.36998 73.0044L9.3763 0.999999" stroke={strokeColor} strokeWidth="16"/>
+                    <motion.path variants={draw} initial="hidden" animate="visible" custom={2} className="welcome-text" id="Senk2" d="M45.37 73.0044L45.3763 0.999999" stroke={strokeColor} strokeWidth="16"/>
                 </g>
                 <g id="L1">
-                    <motion.path variants={draw} initial="hidden" animate="visible" custom={1} id="Waag_2" d="M1 156.105L44 156.105" stroke="#1C1B20" stroke-width="16"/>
-                    <motion.path variants={draw} initial="hidden" animate="visible" custom={0} id="Senk" d="M8.89939 164.004L8.90572 92" stroke="#1C1B20" stroke-width="16"/>
+                    <motion.path variants={draw} initial="hidden" animate="visible" custom={1} id="Waag_2" d="M1 156.105L44 156.105" stroke={strokeColor} strokeWidth="16"/>
+                    <motion.path variants={draw} initial="hidden" animate="visible" custom={0} id="Senk" d="M8.89939 164.004L8.90572 92" stroke={strokeColor} strokeWidth="16"/>
                 </g>
                 <g id="L2">
-                    <motion.path variants={draw} initial="hidden" animate="visible" custom={1} className="welcome-text" id="Waag_3" d="M56 156.105L99 156.105" stroke="#1C1B20" stroke-width="16"/>
-                    <motion.path variants={draw} initial="hidden" animate="visible" custom={0} className="welcome-text" id="Senk_2" d="M63.8994 164.004L63.9057 92" stroke="#1C1B20" stroke-width="16"/>
+                    <motion.path variants={draw} initial="hidden" animate="visible" custom={1} className="welcome-text" id="Waag_3" d="M56 156.105L99 156.105" stroke={strokeColor} strokeWidth="16"/>
+                    <motion.path variants={draw} initial="hidden" animate="visible" custom={0} className="welcome-text" id="Senk_2" d="M63.8994 164.004L63.9057 92" stroke={strokeColor} strokeWidth="16"/>
                 </g>
                 <g id="E">
-                    <motion.path variants={draw} initial="hidden" animate="visible" custom={1} className="welcome-text" id="Waag3" d="M63.5 8.99997L100 9.00002" stroke="#1C1B20" stroke-width="16"/>
-                    <motion.path variants={draw} initial="hidden" animate="visible" custom={1} className="welcome-text" id="Waag1" d="M64 65L100.125 65.0434" stroke="#1C1B20" stroke-width="16"/>
-                    <motion.path variants={draw} initial="hidden" animate="visible" custom={2} className="welcome-text" id="Waag2" d="M78.9999 36.0584L99 35.9971" stroke="#1C1B20" stroke-width="16"/>
-                    <motion.path variants={draw} initial="hidden" animate="visible" custom={0} className="welcome-text" id="Senk_3" d="M71.37 73.0044L71.3763 0.999999" stroke="#1C1B20" stroke-width="16"/>
+                    <motion.path variants={draw} initial="hidden" animate="visible" custom={1} className="welcome-text" id="Waag3" d="M63.5 8.99997L100 9.00002" stroke={strokeColor} strokeWidth="16"/>
+                    <motion.path variants={draw} initial="hidden" animate="visible" custom={1} className="welcome-text" id="Waag1" d="M64 65L100.125 65.0434" stroke={strokeColor} strokeWidth="16"/>
+                    <motion.path variants={draw} initial="hidden" animate="visible" custom={2} className="welcome-text" id="Waag2" d="M78.9999 36.0584L99 35.9971" stroke={strokeColor} strokeWidth="16"/>
+                    <motion.path variants={draw} initial="hidden" animate="visible" custom={0} className="welcome-text" id="Senk_3" d="M71.37 73.0044L71.3763 0.999999" stroke={strokeColor} strokeWidth="16"/>
                 </g>
             </g>
-        </svg>
-    </div>
+        </motion.svg>
+    </motion.div>
 )
 }
