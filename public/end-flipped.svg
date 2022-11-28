@@ -1,0 +1,9 @@
+<svg width="91" height="157" viewBox="0 0 91 157" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 1">
+<path id="bird-body" d="M2 157L0 80L27 20L56 0L72 16.5H56V60L15.5 105L27 128L2 157Z" fill="#A6A6A6"/>
+<g id="wings">
+<path id="wing-back" d="M0 80L91 65.5L27 20L0 80Z" fill="#A6A6A6"/>
+<path id="wing-front" d="M0 80L82.5 110L27 20L0 80Z" fill="#A6A6A6"/>
+</g>
+</g>
+</svg>

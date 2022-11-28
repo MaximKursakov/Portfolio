@@ -1,8 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Libre+Baskerville:wght@400;700&display=swap');
 
 $blue-dark : #437FC7;
 $blue-light : #6DAFFE;
 $grey : #EDF6FF;
+$brown-dark : #a46c47;
+// $brown-dark : #b38229;
+$brown-light : #FFCC6E;
+$text-color : #3f4244;
 
 @mixin flex-center {
     display: flex;
@@ -21,6 +25,7 @@ body {
     margin: 0;
     font-family: 'League Spartan', sans-serif;
     background-color: white;
+    color: $text-color;
 }
 
 .intro-container {
@@ -29,15 +34,38 @@ body {
     position: relative;
 }
 
-.portfolio-title {
-    position: absolute;
-    top: 0;
-    left: 3vw;
-    font-family: 'DM Serif Display', serif;
-    color: #1c1b20;
-    font-size: 1.2rem;
-    margin: 1vh 0 0 0;
+.intro-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 5%;
+    height: 100%;
+    margin-left:2%;
+    .portfolio-title {
+        margin: 0;
+        font-weight: bold;
+        letter-spacing: 4px;
+        color: $text-color;
+        font-size: 2rem;
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .line1, .line2 {
+        border-left: 2px solid $text-color;
+        height: 35%;
+        margin: 3% 0 0 3%;
+      }
+      svg {
+          color: $text-color;
+          scale:1.5
+      }
 }
+
+
+
+
 
 .intro {
     width: 95vw;
@@ -47,8 +75,8 @@ body {
 }
 
 .intro-hero {
-    height: 100%;
-    width: 100%;
+    width: 95vw;
+    height: 90vh;
 }
 
 .bird {
@@ -84,5 +112,84 @@ circle {
   .circle {
       margin-top: auto;
   }
+
+.intro-part-2 {
+    @include position-center();
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    width: 40%;
+    height: 100%;
+    margin: auto 5% auto auto;
+    *{
+       text-align: left;
+       margin: 0;
+    }
+    h2 {
+        font-size: 4rem;
+        font-weight: 900;
+        color: $grey;
+    }
+    .welcome-text {
+        font-size: 3rem;
+        font-weight: 900;
+        color: $grey;
+    }
+    .greeting {
+        display: flex;
+        width: auto;
+        gap: 10%;
+        .name {
+            color: $blue-light;
+            text-shadow: 2px 0 $grey, -2px 0 $grey, 0 2px $grey, 0 -2px $grey,
+            1px 1px $grey, -1px -1px $grey, 1px -1px $grey, -1px 1px $grey;
+            width: auto;
+            display: flex;
+            
+            p {
+                font-size: 4rem;
+                font-weight: 900;
+            }
+            .text-line {
+                align-self: flex-start;
+                border-left: 2px solid $grey;
+                height: 80%;
+                margin-left: 3%;
+            }
+        }
+    }
+    h3 {
+        font-size: 1rem;
+        font-weight: 900;
+        color: $blue-dark;
+        text-align: center;
+        padding: 5px 10px;
+        background-color: white;
+    }
+    .welcome-info {
+        margin: 20px 0;
+        color: $grey;
+        font-size: 1.5rem;
+    }
+    img {
+        margin-top: auto;
+        justify-self: flex-end;
+        min-width: 300px;
+        max-width: 400px;
+    }
+    button {
+        width: 20%;
+        background-color: $blue-dark;
+        border: none;
+        color: white;
+        font-family: league spartan;
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 10px 0;
+        width: 200px;
+    }
+}
 
 

@@ -26,7 +26,7 @@ export function Bird({introLevel, color, visibility}) {
             transition: {duration: .8, delay: .2}
         },
         visibility: {
-            visibility: visibility ? "shown" : "hidden",
+            visibility: visibility ? "hidden" : "shown",
             transition: {delay: introLevel < 4 ? .6 : .45}
         },
         turn: {

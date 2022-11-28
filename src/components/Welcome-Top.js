@@ -19,6 +19,7 @@ export function WelcomeTop ({introLevel}) {
       const strokeColor = "#1C1B20"
 
 return(
+    <div className="welcome">
     <motion.div
     initial={{x : 0}}
     animate={{x: introLevel >= 2 ? "-100vw" : 0,}}
@@ -28,11 +29,9 @@ return(
         height="400" 
         viewBox="0 0 199 165" 
         fill="none" 
-        xmlns="http://www.w3.org/2000/svg"
-        initial="hidden"
-        animate="visible">
+        xmlns="http://www.w3.org/2000/svg">
             <g id="Welcome">
-                    <motion.path initial={{scale: 0}} animate={{scale: 1}} transition={{duration: .5, delay: 2}} className="welcome-text" id="Dot" d="M199 151C199 158.18 193.18 164 186 164C178.82 164 173 158.18 173 151C173 143.82 178.82 138 186 138C193.18 138 199 143.82 199 151Z" fill="#6DAFFE"/>
+                    <motion.path initial={{scale: 0}} animate={{scale: 1}} transition={{duration: .5, delay: 2}} className="welcome-text" id="Dot" d="M199 151C199 158.18 193.18 164 186 164C178.82 164 173 158.18 173 151C173 143.82 178.82 138 186 138C193.18 138 199 143.82 199 151Z" fill="#EDF6FF"/>
                 <g id="O">
                 <g id="O_2">
                 <mask id="path-2-inside-1_3_21" fill="white">
@@ -63,5 +62,6 @@ return(
             </g>
         </motion.svg>
     </motion.div>
+    </div>
 )
 }
