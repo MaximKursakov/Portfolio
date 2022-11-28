@@ -1,7 +1,6 @@
 import { motion } from "framer-motion"
 
 export function Bird({introLevel, color, visibility}) {
-    console.log(visibility)
     const birdMovement = {
         initial: {
             left: "70%", right: "25%"

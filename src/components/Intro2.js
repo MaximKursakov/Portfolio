@@ -10,7 +10,8 @@ export function Intro2() {
                 x: 0, 
                 transition: {delay, duration: .7, type: "tween"} 
         };
-    }
+    },
+    exit: {scale: 0, transition:{duration: .5}}
 }
     const typeText = {
         invisible : {display: "none" },
@@ -21,18 +22,19 @@ export function Intro2() {
                 transition: {delay, }
             }
         },
+        exit: {scale: 0, transition:{duration: .5}}
     }
     return(
-        <motion.div className="intro-part-2" initial="hidden" animate="visible">
+        <motion.div className="intro-part-2" initial="hidden" animate="visible" exit="exit">
             <motion.p className="welcome-text" variants={fadeIn} custom={1}>WELCOME!</motion.p>
-            <motion.div className="greeting" variants={fadeIn} initial="hidden" animate="visible" custom={1.3}>
+            <motion.div className="greeting" variants={fadeIn} initial="hidden" animate="visible" exit="exit" custom={1.3}>
                 <h2>I'M</h2>
-                <motion.div className="name">
-                    <motion.p variants={typeText} initial="invisible" animate="type" custom={1} >M</motion.p>
-                    <motion.p variants={typeText} initial="invisible" animate="type" custom={2}>A</motion.p>
-                    <motion.p variants={typeText} initial="invisible" animate="type" custom={3}>X</motion.p>
-                    <motion.p variants={typeText} initial="invisible" animate="type" custom={4}>I</motion.p>
-                    <motion.p variants={typeText} initial="invisible" animate="type" custom={5}>M</motion.p>
+                <motion.div className="name" initial="invisible" animate="type">
+                    <motion.p variants={typeText} custom={1} >M</motion.p>
+                    <motion.p variants={typeText} custom={2}>A</motion.p>
+                    <motion.p variants={typeText} custom={3}>X</motion.p>
+                    <motion.p variants={typeText} custom={4}>I</motion.p>
+                    <motion.p variants={typeText} custom={5}>M</motion.p>
                     <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: .5, yoyo:Infinity}} className="text-line"></motion.div>
                 </motion.div>
             </motion.div>
