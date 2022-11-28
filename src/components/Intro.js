@@ -4,7 +4,7 @@ import { Bird } from "./Bird"
 import { IntroSidebar } from "./intro-sidebar"
 import { Intro2 } from "./Intro2"
 import { Intro3 } from "./Intro3"
-import  {Card}  from "./Projects-Stack"
+import  {  Card}  from "./Projects-Stack"
 import { WelcomeTop } from "./Welcome-Top"
 
 
