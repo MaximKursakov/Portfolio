@@ -193,9 +193,14 @@ circle {
 }
 
 .card-container {
+    position: relative;
+}
+
+.card {
     width: 100px;
     height: 100px;
     background-color: blue;
-    margin: 200px auto;
+    position: absolute;
+    z-index: 1;
 }
 
