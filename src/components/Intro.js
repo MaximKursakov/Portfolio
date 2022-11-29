@@ -15,7 +15,7 @@ export function Intro () {
     
     
     function forwardIntro() {
-        if(introLevel < 3) {
+        if(introLevel < 4) {
             setIntroLevel(introLevel + 1)
             setBlackBirdVisibility(!blackBirdVisibility)
             setWhiteBirdVisibility(!whiteBirdVisibility)

@@ -220,6 +220,15 @@ circle {
         margin: 0 5% 0 0;
         text-align: end;
         font-size: 5cqi;
+        svg, .read-more-text {
+            cursor: pointer;
+        }
+    }
+    .read-more-text {
+        display: flex;
+    }
+    .text-half {
+        margin-left: 5%;
     }
 }
 

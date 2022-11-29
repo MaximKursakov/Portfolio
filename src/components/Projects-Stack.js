@@ -10,6 +10,31 @@ export function Card() {
     const [grabPosition, setGrabPosition] = useState(0)
     const [cardPosition, setCardPosition] = useState(0)
     const [moveCard, setMoveCard] = useState(false)
+    const textAnimation = {
+        initial : {y: 0 },
+        move : (i) => {
+            const delay = 1.7 + i * .15
+             return {
+                y: [0, -10, 0],
+                transition: {delay, duration: .5, repeat: "Infinity", repeatDelay: 3}
+            }
+        },
+    }
+
+    const animateRender = {
+        hidden:{x: 0, scale: 0, opacity: 0},
+        visible: (i) => {
+            return {
+                scale: 1, 
+                opacity: 1,
+                transition:{duration: .8, delay: i}
+        }
+    },
+    exit:{
+        y : "-50vh",
+        transition: {duration: .5}    
+    }
+}
 
     function handleGrabEnd(endPosition) {
         if(grabPosition - endPosition > 100) {
@@ -31,10 +56,13 @@ export function Card() {
     return(
         <motion.div 
         className="card-container"
-        initial={{opacity: 0, scale: 0}}
-        animate={{opacity: 1, scale: 1}}
-        transition={{delay: 1}}>
-            <motion.h2 initial={{scale: 0, opacity: 0}} animate={{scale: 1, opacity: 1}} transition={{duration: .5, delay: 1}}>WORK</motion.h2>
+        variants={animateRender}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        custom={.5}
+        >
+            <motion.h2>WORK</motion.h2>
             <AnimatePresence>
                     <motion.a 
                         // href="https://maximkursakov.github.io/shop"
@@ -46,6 +74,7 @@ export function Card() {
                             type: "spring",
                             stiffness: 300,
                             damping: 20,
+                            scale: {duration : 1.5},
                             opacity: { duration: 0.2 },
                         }}
                         style={{backgroundImage: `url(./images/Project${cardPosition}.png)`, zIndex: 2}}
@@ -62,7 +91,7 @@ export function Card() {
                          initial={{ scale: 0, y: -100, opacity: 0 }}
                          animate={{ scale: 0.75, y: 70, opacity: 1 }}
                          transition={{
-                             scale: { duration: 0.2 },
+                             scale: { duration: 1.5 },
                              opacity: { duration: 0.4 },
                          }}
                          style={{
@@ -70,10 +99,23 @@ export function Card() {
                         className="card">
                 </motion.a>
             </AnimatePresence>
-            <div className="intro-read-more">
-            <motion.div initial={{y: 0}} animate={{y: [0, -10, 10, -5, 5, 0]}} transition={{repeat: "Infinity", type: "spring", repeatDelay: 2, duration: 2}}><BsChevronRight></BsChevronRight></motion.div>
-            <p>Read more</p>
-            </div>
+            <AnimatePresence>
+            <motion.div className="intro-read-more">
+                <motion.div initial={{y: 0}} animate={{y: [0, -10, 10, -5, 5, 0]}} transition={{repeat: "Infinity", type: "spring", repeatDelay: 2, duration: 2}}><BsChevronRight></BsChevronRight></motion.div>
+                <motion.div className="read-more-text" initial="initial" whileHover="move">
+                        <motion.p variants={textAnimation} custom={1} >R</motion.p>
+                        <motion.p variants={textAnimation} custom={2}>e</motion.p>
+                        <motion.p variants={textAnimation} custom={3}>a</motion.p>
+                        <motion.p variants={textAnimation} custom={4}>d</motion.p>
+
+                        <motion.p variants={textAnimation} custom={5} className="text-half">m</motion.p>
+                        <motion.p variants={textAnimation} custom={6}>o</motion.p>
+                        <motion.p variants={textAnimation} custom={7}>r</motion.p>
+                        <motion.p variants={textAnimation} custom={8}>e</motion.p>
+                        <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: .5, yoyo:Infinity}} className="text-line"></motion.div>
+                    </motion.div>
+            </motion.div>
+            </AnimatePresence>
         </motion.div>
     )
 }
