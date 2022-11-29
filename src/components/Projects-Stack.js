@@ -14,26 +14,26 @@ export function Card() {
         if(grabPosition - endPosition > 100) {
             setMoveCard("-20vw")
             setTimeout(() => {
-                setCardPosition(cardPosition + 1)
+                if(cardPosition === 2) setCardPosition(0)
+                else setCardPosition(cardPosition + 1)
+                
             }, 1);
         }
         else if( endPosition - grabPosition > 200) {
             setMoveCard("20vw")
             setTimeout(() => {
-                setCardPosition(cardPosition + 1)
-                console.log("it runs this too")
+                if(cardPosition === 2) setCardPosition(0)
+                else setCardPosition(cardPosition + 1)
             }, 1);
         }
     }
-
-    console.log(cards)
-    console.log("card position: " + cardPosition)
 
     return(
         <motion.div className="card-container">
             <AnimatePresence>
                     <motion.div 
                         key={cardPosition}
+                        initial={{scale: 0,  y: -100, opacity: 0}}
                         animate={{ scale: 1, y: 0, opacity: 1 }}
                         transition={{
                             type: "spring",
@@ -41,6 +41,7 @@ export function Card() {
                             damping: 20,
                             opacity: { duration: 0.2 },
                         }}
+                        style={{backgroundImage: `url(./images/Project${cardPosition}.png)`, zIndex: 2}}
                         onDragStart={(e) => setGrabPosition(e.x)}
                         onDragEnd={(e) => handleGrabEnd(e.x)}
                         exit={{x : moveCard, opacity: 0, scale: 0, transition:{duration: .4}}}
@@ -48,19 +49,17 @@ export function Card() {
                         dragConstraints={{ left: 0, right: 0 }}
                         dragElastic={.2}
                         className="card">
-                            {cards[cardPosition].cardID}
                 </motion.div>
                     <motion.div 
                          key={cardPosition + 1}
                          initial={{ scale: 0, y: -100, opacity: 0 }}
-                         animate={{ scale: 0.75, y: 30, opacity: 0.5 }}
+                         animate={{ scale: 0.75, y: 70, opacity: 1 }}
                          transition={{
                              scale: { duration: 0.2 },
                              opacity: { duration: 0.4 },
                          }}
-                         style={{position: "absolute"}}
+                         style={{backgroundImage: `url(./images/Project${cardPosition + 1}.png)`, zIndex: 1}}
                         className="card">
-                            {cards[cardPosition.cardID]}
                 </motion.div>
         </AnimatePresence>
         </motion.div>
