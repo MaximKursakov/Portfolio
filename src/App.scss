@@ -183,28 +183,62 @@ circle {
         width: 20%;
         background-color: $blue-dark;
         border: none;
-        color: white;
+        color: $grey;
         font-family: league spartan;
         font-size: 1.5rem;
         text-align: center;
-        padding: 10px 0;
+        padding: 20px 10px;
         width: 200px;
+        border-radius: 100px;
+        box-shadow: #192e47 2px 3px;
+        z-index: 2;
     }
 }
 
 .card-container {
-    position: relative;
+    @include position-center();
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    height: 50%;
+    z-index: 2;
+    container-type: inline-size;
+    h2{
+        width: 50%;
+        margin: auto 0 auto 15%;
+        font-size: 5cqi;
+        cursor:default ;
+    }
+    .intro-read-more {
+        display: flex;
+        gap: 20px;
+        justify-content: flex-end;
+        align-items: center;
+        width: 50%;
+        margin: 0 5% 0 0;
+        text-align: end;
+        font-size: 5cqi;
+    }
 }
 
 .card {
-    width: 200px;
-    height: 200px;
-    // background-color: blue;
+    min-width: 300px;
+    max-width: 450px;
+    width: 30%;
+    aspect-ratio: 2 / 1;
     background-repeat: none;
     background-position: center;
     background-size:cover;
     position: absolute;
-    z-index: 1;
-    left: 47%;
+    cursor: move;
+    cursor: grab;
+    border-radius: 20px;
 }
 
+.card:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}

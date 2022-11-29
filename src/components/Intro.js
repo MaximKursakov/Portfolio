@@ -15,16 +15,18 @@ export function Intro () {
     
     
     function forwardIntro() {
-        if(introLevel < 4) {
+        if(introLevel < 3) {
             setIntroLevel(introLevel + 1)
-        }
             setBlackBirdVisibility(!blackBirdVisibility)
             setWhiteBirdVisibility(!whiteBirdVisibility)
+        }
+        else if(introLevel === 3) {
+        }
+            
     }
     return(
         <div> 
-            <Card></Card>
-        <div onClick={forwardIntro} className="intro-container">
+        <div className="intro-container">
             
                 <motion.div
                 className="intro-hero"
@@ -32,20 +34,21 @@ export function Intro () {
                 animate={{background: `linear-gradient(${introLevel >= 3 ? 180 : 90}deg, #EDF6FF 50%, #6DAFFE 50%)`}}
                 // animate={{x : introLevel === 4 && "-100vw"}}
                 transition={{duration: 1}}
-                onClick={forwardIntro}>
-                    <div className="intro">
-                        <IntroSidebar></IntroSidebar>
-                <Bird introLevel={introLevel} visibility={blackBirdVisibility} color="#6DAFFE"></Bird>
-                <Bird introLevel={introLevel} visibility={whiteBirdVisibility} color="#EDF6FF"></Bird>                               
-                <WelcomeTop introLevel={introLevel}/>
-                <AnimatePresence>
-                {introLevel === 2 && <Intro2></Intro2>
-                }
-                </AnimatePresence>
-                <AnimatePresence>
-                {introLevel === 3 && <Intro3></Intro3>
-                }
-                </AnimatePresence>
+                onClick={forwardIntro}
+                >
+                <div className="intro">
+                    <IntroSidebar></IntroSidebar>
+                    <Bird introLevel={introLevel} visibility={blackBirdVisibility} color="#6DAFFE"></Bird>
+                    <Bird introLevel={introLevel} visibility={whiteBirdVisibility} color="#EDF6FF"></Bird>                               
+                    <WelcomeTop introLevel={introLevel}/>
+                    <AnimatePresence>
+                    {introLevel === 2 && <Intro2></Intro2>
+                    }
+                    </AnimatePresence>
+                    <AnimatePresence>
+                    {introLevel === 3 && <Card></Card>
+                    }
+                    </AnimatePresence>
             </div>
             </motion.div>
             
