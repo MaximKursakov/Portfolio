@@ -10,7 +10,7 @@ import { Intro1 } from "./Intro1"
 
 export function Intro ({introLevel, blackBirdVisibility, whiteBirdVisibility, mainIsInView}) {
     return(
-        <div className="intro-body" style={{position: !mainIsInView ? "fixed" : "absolute", top: !mainIsInView ? "0" : "100vh"}}> 
+        <div className="intro-body" style={{position: !mainIsInView ? "fixed" : "absolute", top: !mainIsInView ? "0" : "150vh"}}> 
             <div className="intro-container">
                     <motion.div
                     className="intro-hero"

@@ -1,6 +1,8 @@
 import { motion, useInView, useScroll } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { About } from "./About";
 import { Intro } from "./Intro";
+import { Projects } from "./Projects";
 
 export function Main() {
     const [introLevel, setIntroLevel] = useState(1)
@@ -43,7 +45,9 @@ export function Main() {
             <div className="intro-background" ref={ref}>
             </div>
             <div className="main" ref={mainRef}>
-                main
+                <About/>
+                <Projects/>
+
             </div>
         </div>
     )
