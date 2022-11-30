@@ -1,4 +1,4 @@
-import { motion, useScroll } from "framer-motion";
+import { motion, useInView, useScroll } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Intro } from "./Intro";
 
@@ -6,20 +6,11 @@ export function Main() {
     const [introLevel, setIntroLevel] = useState(1)
     const [blackBirdVisibility, setBlackBirdVisibility] = useState(true)
     const [whiteBirdVisibility, setWhiteBirdVisibility] = useState(false)
-        
-    
-    
-    // function forwardIntro() {
-    //     if(introLevel < 4) {
-    //         setIntroLevel(introLevel + 1)
-    //         setBlackBirdVisibility(!blackBirdVisibility)
-    //         setWhiteBirdVisibility(!whiteBirdVisibility)
-    //     }
-    //     else if(introLevel === 3) {
-    //     }    
-    // }
-
+    const [introSticky, setIntroSticky] = useState(true)
     const ref = useRef(null);
+    const mainRef = useRef(null)
+    const mainIsInView = useInView(mainRef)
+    
     const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["end end", "start start"]
@@ -37,19 +28,21 @@ export function Main() {
             setBlackBirdVisibility(!blackBirdVisibility)
             setWhiteBirdVisibility(!whiteBirdVisibility)
         }
-        else if(scrollYProgress.current < 0.33) {
+        if(scrollYProgress.current < 0.33 && scrollYProgress.current > 0) {
             setIntroLevel(3)
             setBlackBirdVisibility(true)
-            setWhiteBirdVisibility(false)}
-    })
+            setWhiteBirdVisibility(false)
+        }
+        })
     }, [])
+
 
     return(
         <div className="main-container" >
-            <Intro introLevel={introLevel} blackBirdVisibility={blackBirdVisibility} whiteBirdVisibility={whiteBirdVisibility}></Intro>
+            <Intro introLevel={introLevel} blackBirdVisibility={blackBirdVisibility} whiteBirdVisibility={whiteBirdVisibility} mainIsInView={mainIsInView}></Intro>
             <div className="intro-background" ref={ref}>
             </div>
-            <div className="main">
+            <div className="main" ref={mainRef}>
                 main
             </div>
         </div>

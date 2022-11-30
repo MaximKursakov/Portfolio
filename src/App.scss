@@ -29,8 +29,8 @@ body {
 }
 
 .intro-body {
-    position:fixed;
-    top: 0;
+    top: 300vh;
+    margin-top: auto
 }
 
 .intro-container {
@@ -261,8 +261,9 @@ circle {
 }
 
 .intro-background {
-    height: 300vh;
+    height: 200vh;
 }
 .main {
     height: 100vh;
+    background-color: $grey;
 }
