@@ -9,8 +9,33 @@ import { Intro1 } from "./Intro1"
 
 
 export function Intro ({introLevel, blackBirdVisibility, whiteBirdVisibility, mainIsInView}) {
+    const delayTime = 4
+    const scrollAnimate = {
+        initial : {
+            height: "30px"
+        }, 
+        minimize : {
+            height: "1px", 
+            transition: {
+                duration: 1,
+                delay: delayTime -1
+                }
+        }, 
+        moveUp : {
+            marginBottom: ["0px","30px", "0px"], 
+            transition: {
+                duration: 2, 
+                delay: delayTime}
+            },
+        extendDown: {
+            paddingBottom: "30px", 
+            transition: {
+                duration: 1, 
+                delay: delayTime + 1}
+            }
+    }
     return(
-        <div className="intro-body" style={{position: !mainIsInView ? "fixed" : "absolute", top: !mainIsInView ? "0" : "150vh"}}> 
+        <div className="intro-body" style={{position: !mainIsInView ? "fixed" : "absolute", top: !mainIsInView ? "0" : "100vh"}}> 
             <div className="intro-container">
                     <motion.div
                     className="intro-hero"
@@ -38,7 +63,16 @@ export function Intro ({introLevel, blackBirdVisibility, whiteBirdVisibility, ma
                             : null}
                         </AnimatePresence>
                     </div>
+                    <div className="scroll">
+                        <p>Scroll</p>
+                        <motion.div 
+                        variants={scrollAnimate}
+                        // initial="initial"
+                        animate={["minimize", "moveUp", "extendDown"]}
+                        ></motion.div>
+                    </div>
                 </motion.div>
+                
             </div>
         </div>
     )

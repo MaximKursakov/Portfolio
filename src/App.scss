@@ -80,9 +80,33 @@ body {
     position: relative;
 }
 
+
+
 .intro-hero {
     width: 95vw;
     height: 90vh;
+    position: relative;
+}
+
+.scroll {
+    position: absolute;
+    bottom: 0;
+    left: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    p {
+        margin: 0;
+        margin-bottom: 20px;
+        font-size: .8rem;
+        transform: rotate(-90deg);
+    }
+    div {
+        height: 40px;
+        width: 1px;
+        background-color: $text-color;
+    }
 }
 
 .bird {
@@ -262,7 +286,7 @@ circle {
 }
 
 .intro-background {
-    height: 250vh;
+    height: 200vh;
 }
 .main {
 }
@@ -321,10 +345,9 @@ circle {
     position: relative;
     color: $grey;
     .project-image {
-        position: absolute;
         min-width: 400px;
         max-width: 900px;
-        width: 80%;
+        width: 50%;
         aspect-ratio: 2 / 1;
         background-repeat: none;
         background-position: center;
@@ -336,7 +359,6 @@ circle {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        position: absolute;
         right: 0;
         top: 0;
         bottom: 0;
@@ -356,7 +378,6 @@ circle {
         h3 {
             margin: 0;
             font-size: 2em;
-            color: $text-color
         }
         p {
             margin: 0;
