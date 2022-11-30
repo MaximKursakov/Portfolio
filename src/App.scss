@@ -28,6 +28,11 @@ body {
     color: $text-color;
 }
 
+.intro-body {
+    position:fixed;
+    top: 0;
+}
+
 .intro-container {
     @include flex-center();
     height: 100vh;
@@ -250,4 +255,14 @@ circle {
     cursor: grabbing;
     cursor: -moz-grabbing;
     cursor: -webkit-grabbing;
+}
+
+.main-container {
+}
+
+.intro-background {
+    height: 300vh;
+}
+.main {
+    height: 100vh;
 }

@@ -74,7 +74,6 @@ export function Card() {
                             type: "spring",
                             stiffness: 300,
                             damping: 20,
-                            scale: {duration : 1.5},
                             opacity: { duration: 0.2 },
                         }}
                         style={{backgroundImage: `url(./images/Project${cardPosition}.png)`, zIndex: 2}}
@@ -91,7 +90,6 @@ export function Card() {
                          initial={{ scale: 0, y: -100, opacity: 0 }}
                          animate={{ scale: 0.75, y: 70, opacity: 1 }}
                          transition={{
-                             scale: { duration: 1.5 },
                              opacity: { duration: 0.4 },
                          }}
                          style={{
