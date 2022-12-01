@@ -1,23 +1,32 @@
 
 import {useRef} from "react"
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 
 export function Projects() {
 
     const parentRef = useRef()
     const imageRef = useRef()
+    const x = useMotionValue(0)
+    const y = useMotionValue(0)
+
+    const rotateX = useTransform(y, [-200, 200], [45, -45])
+    const rotateY = useTransform(x, [-200, 200], [-45, 45])
+
     function handleMouseOver(event) {
+        if (!event) return
         const MouseInParent = getMousePositionInParent(event)
-        console.log(MouseInParent.Y)
         const imageCenter = getImageCenter(imageRef)
-        console.log(imageCenter.X)
+        x.set(MouseInParent.X - imageCenter.X)
+        y.set(MouseInParent.Y - imageCenter.Y)
     }
 
+
     function getImageCenter(image) {
-        if (!image) return
+        const parentPositionY = parentRef.current.offsetTop
+        const parentPositionX = parentRef.current.offsetLeft
         return {
-            X : (image.current.clientWidth / 2) + image.current.offsetLeft,
-            Y : image.current.clientHeight / 2 + image.current.offsetTop
+            X : (image.current.clientWidth / 2) + (image.current.offsetLeft),
+            Y : (image.current.clientHeight / 2) + (image.current.offsetTop)
         }
     }
 
@@ -36,14 +45,15 @@ export function Projects() {
     return(
         <div className="projects-container">
             <div 
+            style={{perspective: 400,}}
             onMouseMove={(e) => handleMouseOver(e)}
             ref={parentRef}
             className="projects-odd">
-                <div
+                <motion.div
+                style={{ rotateX, rotateY, backgroundImage: `url(./images/Project0.png)`}}
                 ref={imageRef}
-                className="project-image"
-                style={{backgroundImage: `url(./images/Project0.png)`}}>
-                </div>
+                className="project-image">
+                </motion.div>
                 <div className="project-info">
                     <h2>Project 1</h2>
                     <h3>Ecommerce Website</h3>
