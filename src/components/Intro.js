@@ -9,29 +9,29 @@ import { Intro1 } from "./Intro1"
 
 
 export function Intro ({introLevel, blackBirdVisibility, whiteBirdVisibility, mainIsInView}) {
-    const delayTime = 4
+    const delayAnimation = 4
     const scrollAnimate = {
         initial : {
-            height: "30px"
+            height: "35px"
         }, 
         minimize : {
             height: "1px", 
             transition: {
                 duration: 1,
-                delay: delayTime -1
+                delay: delayAnimation -1
                 }
         }, 
         moveUp : {
-            marginBottom: ["0px","30px", "0px"], 
+            marginBottom: ["0px","35px", "0px"], 
             transition: {
                 duration: 2, 
-                delay: delayTime}
+                delay: delayAnimation}
             },
         extendDown: {
-            paddingBottom: "30px", 
+            paddingBottom: "35px", 
             transition: {
                 duration: 1, 
-                delay: delayTime + 1}
+                delay: delayAnimation + 1}
             }
     }
     return(
@@ -64,10 +64,12 @@ export function Intro ({introLevel, blackBirdVisibility, whiteBirdVisibility, ma
                         </AnimatePresence>
                     </div>
                     <div className="scroll">
-                        <p>Scroll</p>
+                        <motion.p 
+                        initial={{rotateZ: -90,}}
+                        animate={{ y: ["0px", "10px", "0px"]}} 
+                        transition={{duration: 1, delay:delayAnimation +3, repeat: "Infinity", repeatDelay: 2}}>Scroll</motion.p>
                         <motion.div 
                         variants={scrollAnimate}
-                        // initial="initial"
                         animate={["minimize", "moveUp", "extendDown"]}
                         ></motion.div>
                     </div>

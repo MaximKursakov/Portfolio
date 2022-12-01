@@ -1,10 +1,31 @@
+
+import {useRef} from "react"
 import { motion } from "framer-motion";
 
 export function Projects() {
+
+    const imageRef = useRef()
+    function handleMouseOver(event) {
+        const parentPositionY = imageRef.current.offsetTop
+        const parentPositionX = imageRef.current.offsetLeft
+        const mousePositionY = event.pageY
+        const mousePositionX = event.pageX
+        console.log(event.pageY)
+        console.log(event.pageX)
+        console.log(imageRef.current.offsetTop)
+        console.log(imageRef.current.offsetLeft)
+    }
+
+
     return(
         <div className="projects-container">
-            <div className="projects-odd">
+            <div style={{position: "absolute", top: 3001, zIndex: 2, left: 252}}>d</div>
+            <div 
+            onMouseMove={(e) => handleMouseOver(e)}
+            ref={imageRef}
+            className="projects-odd">
                 <div
+                
                 className="project-image"
                 style={{backgroundImage: `url(./images/Project0.png)`}}>
                 </div>
@@ -29,7 +50,8 @@ export function Projects() {
                     </div>
                 </div>
             </div>
-            <div className="projects-even">
+            <div className="projects-even"
+            >
                 <div
                 className="project-image"
                 style={{backgroundImage: `url(./images/Project1.png)`}}>
