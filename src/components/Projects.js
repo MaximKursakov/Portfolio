@@ -4,28 +4,43 @@ import { motion } from "framer-motion";
 
 export function Projects() {
 
+    const parentRef = useRef()
     const imageRef = useRef()
     function handleMouseOver(event) {
-        const parentPositionY = imageRef.current.offsetTop
-        const parentPositionX = imageRef.current.offsetLeft
+        const MouseInParent = getMousePositionInParent(event)
+        console.log(MouseInParent.Y)
+        const imageCenter = getImageCenter(imageRef)
+        console.log(imageCenter.X)
+    }
+
+    function getImageCenter(image) {
+        if (!image) return
+        return {
+            X : (image.current.clientWidth / 2) + image.current.offsetLeft,
+            Y : image.current.clientHeight / 2 + image.current.offsetTop
+        }
+    }
+
+    function getMousePositionInParent(event) {
+        const parentPositionY = parentRef.current.offsetTop
+        const parentPositionX = parentRef.current.offsetLeft
         const mousePositionY = event.pageY
         const mousePositionX = event.pageX
-        console.log(event.pageY)
-        console.log(event.pageX)
-        console.log(imageRef.current.offsetTop)
-        console.log(imageRef.current.offsetLeft)
+        return {
+            Y : mousePositionY - parentPositionY,
+            X : mousePositionX - parentPositionX
+        }
     }
 
 
     return(
         <div className="projects-container">
-            <div style={{position: "absolute", top: 3001, zIndex: 2, left: 252}}>d</div>
             <div 
             onMouseMove={(e) => handleMouseOver(e)}
-            ref={imageRef}
+            ref={parentRef}
             className="projects-odd">
                 <div
-                
+                ref={imageRef}
                 className="project-image"
                 style={{backgroundImage: `url(./images/Project0.png)`}}>
                 </div>
