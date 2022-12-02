@@ -1,38 +1,16 @@
 
-import {useRef, useState} from "react"
+import {useEffect, useRef, useState} from "react"
 import { motion, useMotionValue, useTransform } from "framer-motion";
+import { Project } from "./Project";
 
 export function Projects() {
-    const containerRef1 = useRef()
-    const containerRef2 = useRef()
-    const containerRef3 = useRef()
-    const containerRef4 = useRef()
     const parentRef = useRef()
-    const imageRef1 = useRef()
-    const imageRef2 = useRef()
-    const imageRef3 = useRef()
-    const imageRef4 = useRef()
-    const x1 = useMotionValue(0)
-    const x2 = useMotionValue(0)
-    const x3 = useMotionValue(0)
-    const x4 = useMotionValue(0)
-    const y1 = useMotionValue(0)
-    const y2 = useMotionValue(-300)
-    const y3 = useMotionValue(-300)
-    const y4 = useMotionValue(-300)
-    
-
-    const rotateX1 = useTransform(y1, [-300, 300], [10, -10])
-    const rotateX2 = useTransform(y2, [-300, 300], [10, -10])
-    const rotateX3 = useTransform(y3, [-300, 300], [10, -10])
-    const rotateX4 = useTransform(y4, [-300, 300], [10, -10])
-    const rotateY1 = useTransform(x1, [-300, 300], [-10, 10])
-    const rotateY2 = useTransform(x2, [-300, 300], [-10, 10])
-    const rotateY3 = useTransform(x3, [-300, 300], [-10, 10])
-    const rotateY4 = useTransform(x4, [-300, 300], [-10, 10])
-
+ 
     const [mousePositionInParentX, setMousePositionInParentX] = useState(0)
     const [mousePositionInParentY, setMousePositionInParentY] = useState(0)
+
+    
+
 
     function getMousePositionInParent(event) {
         const parentPositionY = parentRef.current.offsetTop
@@ -41,24 +19,6 @@ export function Projects() {
         const mousePositionX = event.pageX
         setMousePositionInParentX(mousePositionX - parentPositionX)
         setMousePositionInParentY(mousePositionY - parentPositionY)
-
-        setAnimationVariables(imageRef1, containerRef1, x1, y1, mousePositionInParentX, mousePositionInParentY)
-        setAnimationVariables(imageRef2, containerRef2, x2, y2, mousePositionInParentX, mousePositionInParentY)
-        setAnimationVariables(imageRef3, containerRef3, x3, y3, mousePositionInParentX, mousePositionInParentY)
-        setAnimationVariables(imageRef4, containerRef4, x4, y4, mousePositionInParentX, mousePositionInParentY)
-    }
-    
-    function getImageCenter(image, container) {
-        return {
-            X : (image.current.clientWidth / 2) + (image.current.offsetLeft),
-            Y : (image.current.clientHeight) + (container.current.offsetTop - parentRef.current.offsetTop)
-        }
-    }
-
-    function setAnimationVariables(imageRef, containerRef, x, y, mouseX, mouseY) {
-        const imageCenter = getImageCenter(imageRef, containerRef)
-        x.set(mouseX - imageCenter.X)
-        y.set(mouseY - imageCenter.Y)
     }
 
 
@@ -67,7 +27,23 @@ export function Projects() {
         onMouseMove={(e) => getMousePositionInParent(e)}
         ref={parentRef}
         >
-            <div 
+            <Project 
+            mousePositionInParentX={mousePositionInParentX}
+            mousePositionInParentY={mousePositionInParentY} 
+            parentRef={parentRef}></Project>
+            <Project 
+            mousePositionInParentX={mousePositionInParentX}
+            mousePositionInParentY={mousePositionInParentY} 
+            parentRef={parentRef}></Project>
+            <Project 
+            mousePositionInParentX={mousePositionInParentX}
+            mousePositionInParentY={mousePositionInParentY} 
+            parentRef={parentRef}></Project>
+            <Project 
+            mousePositionInParentX={mousePositionInParentX}
+            mousePositionInParentY={mousePositionInParentY} 
+            parentRef={parentRef}></Project>
+            {/* <div 
             style={{perspective: 500}}
             ref={containerRef1}
             className="projects-odd">
@@ -178,7 +154,7 @@ export function Projects() {
 
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
