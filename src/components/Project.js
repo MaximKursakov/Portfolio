@@ -37,7 +37,7 @@ export function Project({mousePositionInParentX, mousePositionInParentY, parentR
             ref={containerRef}
             className={isOdd(project.id) ? "projects-odd" : "projects-even"}>
                 <motion.div
-                style={{ rotateX : rotateX, rotateY: rotateY, backgroundImage: `url(./images/Project${project.id - 1}.png)`}}
+                style={{ rotateX : rotateX, rotateY: rotateY, backgroundImage: `url(./images/${project.imageTitle}.png)`}}
                 ref={imageRef}
                 className="project-image">
                 </motion.div>
