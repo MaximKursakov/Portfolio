@@ -317,13 +317,17 @@ circle {
     }
     h2 {
         margin: 0;
+        font-weight: 500;
+        
     }
     h3 {
         font-size: 3rem;
         margin: 0;
+        font-weight: 900;
     }
     p {
         font-size: 1.5rem;
+        font-weight: 300;
         margin: 0;
     }
 }
@@ -352,7 +356,11 @@ circle {
     width: 100%;
     @include flex-center();
     flex-direction: column;
-    background: linear-gradient(180deg, hsla(213, 54%, 52%, 1) 0%, hsla(186, 100%, 69%, 1) 50%, hsla(213, 54%, 52%, 1) 100%);
+    background: linear-gradient(180deg, hsla(213, 54%, 52%, 1) 0%, rgb(68, 194, 208) 50%, rgb(67, 126, 199) 100%);
+    .projects-header {
+        font-size: 5em;
+        color: $grey;
+    }
 }
 
 
@@ -364,15 +372,16 @@ circle {
     justify-content: center;
     gap: 5%;
     color: $grey;
-        .project-image {
-            min-width: 400px;
-            max-width: 900px;
-            width: 30%;
-            aspect-ratio: 2 / 1;
-            background-repeat: none;
-            background-position: center;
-            background-size:cover;
-            border-radius: 25px;
+    
+    .project-image {
+        min-width: 400px;
+        max-width: 900px;
+        width: 30%;
+        aspect-ratio: 2 / 1;
+        background-repeat: none;
+        background-position: center;
+        background-size:cover;
+        border-radius: 25px;
     }
     
     .project-info {
@@ -384,8 +393,8 @@ circle {
         top: 0;
         bottom: 0;
         margin: auto 0;
-        min-width: 200px;
-        width: 20%;
+        min-width: 400px;
+        width: 25%;
         max-width: 600px;
         font-size: clamp(.8rem, 1cqi, 2rem) ;
         aspect-ratio: 1.5 / 1;
@@ -400,6 +409,9 @@ circle {
         }
         p {
             margin: 0;
+            line-height: 1.5em;
+            font-weight: 300;
+            color: white;
         }
         ul {
             display: flex;
@@ -412,13 +424,14 @@ circle {
             display: flex;
             gap: 5%;
         }
-        button {
+        a {
+            text-decoration:none ;
             font-size: 1em;
             font-family: League Spartan ;
             color: $grey;
             font-weight: 500;
             padding: 2%;
-            border: solid $grey 2px;
+            border: solid $grey 1px;
             background-color: transparent;
         }
     }

@@ -4,7 +4,6 @@ import { motion, useMotionValue, useTransform } from "framer-motion"
 export function Project({mousePositionInParentX, mousePositionInParentY, parentRef, project}) {
     const containerRef = useRef()
     const imageRef = useRef()
-    console.log(project)
 
     const x = useMotionValue(0)
     const y = useMotionValue(-300)
@@ -36,11 +35,17 @@ export function Project({mousePositionInParentX, mousePositionInParentY, parentR
             style={{perspective: 500}}
             ref={containerRef}
             className={isOdd(project.id) ? "projects-odd" : "projects-even"}>
-                <motion.div
-                style={{ rotateX : rotateX, rotateY: rotateY, backgroundImage: `url(./images/${project.imageTitle}.png)`}}
+                <motion.a
+                href={project.websiteLink}
+                target="_blank"
+                style={{ 
+                    rotateX, 
+                    rotateY, 
+                    backgroundImage: `url(./images/${project.imageTitle}.png)`, 
+                    pointerEvents: project.websiteLink === "" ? "none" : "default"}}
                 ref={imageRef}
                 className="project-image">
-                </motion.div>
+                </motion.a>
                 <div className="project-info">
                     <h2>{project.title}</h2>
                     <h3>{project.subtitle}</h3>
@@ -54,8 +59,13 @@ export function Project({mousePositionInParentX, mousePositionInParentY, parentR
                         }
                     </ul>
                     <div className="project-buttons">
-                        <button>Visit Site</button>
-                        <button>View Code</button>
+                        {project.websiteLink !== "" ? 
+                        <a href={project.websiteLink} target="_blank" rel="noreferrer">Visit Site</a> 
+                        : null}
+                        {project.codeLink !== "" ? 
+                        <a href={project.codeLink} target="_blank" rel="noreferrer">View Code</a>
+                        : null}
+                        
                     </div>
                 </div>
             </div>
