@@ -21,6 +21,19 @@ export function Projects() {
         setMousePositionInParentY(mousePositionY - parentPositionY)
     }
 
+    const projectArray = [{
+        title: "Project 1", subtitle: "Ecommerce Website", techstack: ["HTML", "CSS", "REACT", "MAPBOX"], websiteLink: "", buttonLink: "", id: 1, description: "This Projected started of as a simple Basket and evolved into an entire Frontend for a Fictional Chair Shop. I chose a minimalistic design approach with a Monochromatic Color Scheme and lots of white space to fit the chairs clean style."
+    },
+    {
+        title: "Project 2", subtitle: "Weather App", techstack: ["HTML", "CSS", "JAVASCRIPT"], websiteLink: "", buttonLink: "", id: 2, description: "The Weather App fetches data depending on the Users Location / Input and Displays it accordingly. The Websites Design changes together with certain weather conditions."
+    },
+    {
+        title: "Project 3", subtitle: "Personal Website", techstack: ["HTML", "CSS", "REACT", "FRAMER-MOTION"], websiteLink: "", buttonLink: "", id: 3, description: "With my Portfolio I my wanted to bring in more life and creativity into my website through its design and the usage of animations.Those are beeing used more often while stil keeping the Design simple and clean."
+    },
+    {
+        title: "Project 4", subtitle: "DistractLess", techstack: [], websiteLink: "", buttonLink: "", id: 4, description: "With my Portfolio I my wanted to bring in more life and creativity into my website through its design and the usage of animations.Those are beeing used more often while stil keeping the Design simple and clean."
+    }]
+
 
     return(
         <div className="projects-container"
@@ -30,19 +43,26 @@ export function Projects() {
             <Project 
             mousePositionInParentX={mousePositionInParentX}
             mousePositionInParentY={mousePositionInParentY} 
-            parentRef={parentRef}></Project>
+            parentRef={parentRef}
+            project={projectArray[0]}></Project>
             <Project 
             mousePositionInParentX={mousePositionInParentX}
             mousePositionInParentY={mousePositionInParentY} 
-            parentRef={parentRef}></Project>
+            parentRef={parentRef}
+            project={projectArray[1]}></Project>
             <Project 
             mousePositionInParentX={mousePositionInParentX}
             mousePositionInParentY={mousePositionInParentY} 
-            parentRef={parentRef}></Project>
+            parentRef={parentRef}
+            project={projectArray[2]}></Project>
             <Project 
             mousePositionInParentX={mousePositionInParentX}
             mousePositionInParentY={mousePositionInParentY} 
-            parentRef={parentRef}></Project>
+            parentRef={parentRef}
+            project={projectArray[3]}></Project>
+
+    
+
             {/* <div 
             style={{perspective: 500}}
             ref={containerRef1}

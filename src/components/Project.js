@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react"
 import { motion, useMotionValue, useTransform } from "framer-motion"
 
-export function Project({mousePositionInParentX, mousePositionInParentY, parentRef}) {
+export function Project({mousePositionInParentX, mousePositionInParentY, parentRef, project}) {
     const containerRef = useRef()
     const imageRef = useRef()
+    console.log(project)
 
     const x = useMotionValue(0)
     const y = useMotionValue(-300)
@@ -26,30 +27,31 @@ export function Project({mousePositionInParentX, mousePositionInParentY, parentR
         x.set(mouseX - imageCenter.X)
         y.set(mouseY - imageCenter.Y)
     }
+
+    function isOdd(id) {
+        return (id % 2) ? true : false
+    }
     return(
         <div 
             style={{perspective: 500}}
             ref={containerRef}
-            className="projects-odd">
+            className={isOdd(project.id) ? "projects-odd" : "projects-even"}>
                 <motion.div
-                style={{ rotateX : rotateX, rotateY: rotateY, backgroundImage: `url(./images/Project0.png)`}}
+                style={{ rotateX : rotateX, rotateY: rotateY, backgroundImage: `url(./images/Project${project.id - 1}.png)`}}
                 ref={imageRef}
                 className="project-image">
                 </motion.div>
                 <div className="project-info">
-                    <h2>Project 1</h2>
-                    <h3>Ecommerce Website</h3>
+                    <h2>{project.title}</h2>
+                    <h3>{project.subtitle}</h3>
                     <p>
-                        This Projected started of as a simple Basket and evolved into an entire Frontend for a Fictional Chair Shop. 
-                        I chose a minimalistic design approach with a Monochromatic Color Scheme and lots of white space to fit the chairs clean style.</p>
+                        {project.description}</p>
                     <ul>
-                        <li>HTML</li>
-                        <li>-</li>
-                        <li>CSS</li>
-                        <li>-</li>
-                        <li>React</li>
-                        <li>-</li>
-                        <li>MapBox</li>
+                        {project.techstack.map(tech => 
+                        <li>
+                            {tech}
+                        </li>)
+                        }
                     </ul>
                     <div className="project-buttons">
                         <button>Visit Site</button>
