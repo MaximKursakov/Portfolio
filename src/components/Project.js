@@ -39,6 +39,7 @@ export function Project({mousePositionInParentX, mousePositionInParentY, parentR
                 href={project.websiteLink}
                 target="_blank"
                 style={{ 
+                    cursor: "pointer",
                     rotateX, 
                     rotateY, 
                     backgroundImage: `url(./images/${project.imageTitle}.png)`, 

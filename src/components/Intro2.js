@@ -24,6 +24,7 @@ export function Intro2() {
         },
         exit: {scale: 0, transition:{duration: .5}}
     }
+    const scrollAbout = () => window.scrollTo({ top: 1000 })
     return(
         <motion.div className="intro-part-2" initial="hidden" animate="visible" exit="exit">
             <motion.p className="welcome-text" variants={fadeIn} custom={1}>WELCOME!</motion.p>
@@ -42,6 +43,7 @@ export function Intro2() {
             <motion.p className="welcome-info" variants={fadeIn} custom={1.9}>I'm a Frontend Developer with a huge passion for bringing great UIs into existence through solid and scalable code.</motion.p>
             {/* <motion.img variants={fadeIn} custom={2} src="/images/Avatar.svg"></motion.img> */}
             <motion.button  
+            onClick={scrollAbout}
                 variants={fadeIn}
                 custom={2.2}
                 whileHover={{}} 
