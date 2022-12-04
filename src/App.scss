@@ -6,7 +6,7 @@ $grey : #EDF6FF;
 $brown-dark : #a46c47;
 // $brown-dark : #b38229;
 $brown-light : #FFCC6E;
-$text-color : #3f4244;
+$text-color : #323537;
 
 @mixin flex-center {
     display: flex;
@@ -35,7 +35,7 @@ body {
 
 .intro-container {
     @include flex-center();
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     position: relative;
 }
@@ -43,11 +43,10 @@ body {
 .intro-sidebar {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 5%;
     height: 100%;
-    margin-left:2%;
+    width: 5%;
+    margin-left: 3%;
+    justify-content: center;
     .portfolio-title {
         margin: 0;
         font-weight: bold;
@@ -55,18 +54,39 @@ body {
         color: $text-color;
         font-size: 2rem;
         text-align: center;
-        width: 100%;
-        margin: 0 auto;
+        padding-bottom: 50%;
     }
-    .line1, .line2 {
-        border-left: 2px solid $text-color;
-        height: 35%;
-        margin: 3% 0 0 3%;
-      }
-      svg {
-          color: $text-color;
-          scale:1.5
-      }
+    .intro-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 85%;
+        position: relative;
+        .line1, .line2 {
+            position: absolute;
+            border-left: 2px solid $text-color;
+            margin-left: 3%;
+        }
+        .line1 {
+            padding-bottom: 35vh;
+            top: 0;
+        }
+        .line2 {
+            justify-self: flex-end;
+            margin-top: auto;
+            padding-top: 35vh;
+            bottom: 0;
+        }
+        .burger {
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+        }
+        svg {
+            color: $text-color;
+            scale:1.5
+        }
+    }
 }
 
 
@@ -97,11 +117,13 @@ body {
     align-items: center;
     margin-bottom: 20px;
     color: white;
+    z-index: 0;
     p {
         margin: 0;
         margin-bottom: 20px;
         font-size: .8rem;
         transform: rotate(-90deg);
+        z-index: 0;
     }
     div {
         height: 35px;
@@ -122,6 +144,8 @@ body {
     @include position-center();
     @include flex-center();
     height: 100vh;
+    width:30vw;
+    margin: 0 auto 0 37%;
     flex-direction: column;
     font-size: 10rem;
     font-weight: 900;
@@ -445,4 +469,24 @@ circle {
 
 .projects-even {
     flex-direction: row-reverse;
+}
+
+.contact-container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(160deg, $blue-dark 50%,  $grey 50%);
+    h2, h3 {
+        padding-left: 5%;
+        font-size: 6rem;
+        margin: 0;
+        color: $grey;
+    }
+    h2 {
+        padding-top: 10vw;
+    }
+    h3 {
+        width: 50%;
+        margin: 0;
+        color: rgb(22, 21, 22);
+    }
 }

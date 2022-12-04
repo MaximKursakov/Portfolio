@@ -6,35 +6,11 @@ import { Intro2 } from "./Intro2"
 import { Intro3 } from "./Intro3"
 import  {  Card}  from "./Projects-Stack"
 import { Intro1 } from "./Intro1"
+import { ScrollIndicator } from "./ScrollIndicator"
 
 
 export function Intro ({introLevel, blackBirdVisibility, whiteBirdVisibility, mainIsInView}) {
-    const delayAnimation = 4
-    const animationSpeed = 1
-    const scrollAnimate = {
-        initial : {
-            height: "35px"
-        }, 
-        minimize : {
-            height: "1px", 
-            transition: {
-                duration: animationSpeed,
-                delay: delayAnimation
-                }
-        }, 
-        moveUp : {
-            marginBottom: ["0px","35px", "0px"], 
-            transition: {
-                duration: animationSpeed * 2, 
-                delay: delayAnimation + animationSpeed}
-            },
-        extendDown: {
-            paddingBottom: "35px", 
-            transition: {
-                duration: animationSpeed, 
-                delay: delayAnimation + animationSpeed * 2}
-            }
-    }
+    
     return(
         <div className="intro-body" style={{position: !mainIsInView ? "fixed" : "absolute", top: !mainIsInView ? "0" : "100vh"}}> 
             <div className="intro-container">
@@ -64,16 +40,7 @@ export function Intro ({introLevel, blackBirdVisibility, whiteBirdVisibility, ma
                             : null}
                         </AnimatePresence>
                     </div>
-                    <div className="scroll">
-                        <motion.p 
-                        initial={{rotateZ: -90,}}
-                        animate={{ y: ["0px", "5px", "0px"]}} 
-                        transition={{duration: 1, delay:delayAnimation +3, repeat: "Infinity", repeatDelay: 2}}>Scroll</motion.p>
-                        <motion.div 
-                        variants={scrollAnimate}
-                        animate={["minimize", "moveUp", "extendDown"]}
-                        ></motion.div>
-                    </div>
+                    <ScrollIndicator/>
                 </motion.div>
                 
             </div>

@@ -11,7 +11,7 @@ export function Intro2() {
                 transition: {delay, duration: .7, type: "tween"} 
         };
     },
-    exit: {scale: 0, transition:{duration: .5}}
+    exit: {scale: 0, opacity: 0, transition:{duration: .5}}
 }
     const typeText = {
         invisible : {display: "none" },
@@ -22,7 +22,7 @@ export function Intro2() {
                 transition: {delay, }
             }
         },
-        exit: {scale: 0, transition:{duration: .5}}
+        exit: {scale: 0, opacity: 0, transition:{ duration: .5}}
     }
     const scrollAbout = () => window.scrollTo({ top: 1000 })
     return(
