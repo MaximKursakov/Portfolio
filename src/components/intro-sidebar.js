@@ -18,7 +18,8 @@ export function IntroSidebar() {
             
             <motion.div 
             className="line1" 
-            animate={{paddingBottom: menuOpen ? "25vh" : "35vh"}}
+            animate={{paddingBottom: menuOpen ? "25vh" : "33vh"}}
+            transition={{duration: .5}}
             ></motion.div>
             <div className="navMenu">
                 <AnimatePresence>
@@ -29,9 +30,9 @@ export function IntroSidebar() {
                     animate="animate"
                     exit="exit"
                     >
-                        <motion.li>ABOUT</motion.li>
-                        <motion.li>PROJECTS</motion.li>
-                        <motion.li>CONTACT</motion.li>
+                        <motion.li initial={{opacity: .7}} whileHover={{opacity: 1}}>ABOUT</motion.li>
+                        <motion.li initial={{opacity: .7}} whileHover={{opacity: 1}}>PROJECTS</motion.li>
+                        <motion.li initial={{opacity: .7}} whileHover={{opacity: 1}}>CONTACT</motion.li>
                     </motion.ul> : null}
                     
                 </AnimatePresence>
@@ -39,7 +40,8 @@ export function IntroSidebar() {
             </div>
             <motion.div 
             className="line2" 
-            animate={{paddingTop: menuOpen ? "25vh" : "35vh"}}
+            animate={{paddingTop: menuOpen ? "25vh" : "33vh"}}
+            transition={{duration: .5}}
             ></motion.div>
         </div>
         </div>

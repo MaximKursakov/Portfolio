@@ -74,12 +74,14 @@ body {
                 text-align: center;
                 padding-left: 2%;
                 li {
+                    cursor: pointer;
                     padding: 20% 0;
                     font-size: 1.3rem;
                     font-weight: 300;
                 }
             }
             .burger {
+                cursor: pointer;
                 position: absolute;
                 margin: 0 auto;
                 scale: .3;
@@ -88,17 +90,15 @@ body {
         }
         .line1, .line2 {
             position: absolute;
-            border-left: 2px solid $text-color;
+            border-left: 1px solid $text-color;
             margin-left: 3%;
         }
         .line1 {
-            padding-bottom: 35vh;
             top: 0;
         }
         .line2 {
             justify-self: flex-end;
             margin-top: auto;
-            padding-top: 35vh;
             bottom: 0;
         }
         
