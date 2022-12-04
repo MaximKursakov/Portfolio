@@ -62,6 +62,30 @@ body {
         align-items: center;
         height: 85%;
         position: relative;
+        .navMenu {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            .navLinks {
+                z-index: 1;
+                list-style: none;
+                text-align: center;
+                padding-left: 2%;
+                li {
+                    padding: 20% 0;
+                    font-size: 1.3rem;
+                    font-weight: 300;
+                }
+            }
+            .burger {
+                position: absolute;
+                margin: 0 auto;
+                scale: .3;
+                z-index: 1;
+            }
+        }
         .line1, .line2 {
             position: absolute;
             border-left: 2px solid $text-color;
@@ -77,15 +101,8 @@ body {
             padding-top: 35vh;
             bottom: 0;
         }
-        .burger {
-            top: 0;
-            bottom: 0;
-            margin: auto 0;
-        }
-        svg {
-            color: $text-color;
-            scale:1.5
-        }
+        
+        
     }
 }
 
