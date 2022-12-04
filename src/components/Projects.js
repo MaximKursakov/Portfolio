@@ -37,6 +37,7 @@ export function Projects() {
 
     return(
         <div className="projects-container"
+        name="projects"
         onMouseMove={(e) => getMousePositionInParent(e)}
         ref={parentRef}
         >

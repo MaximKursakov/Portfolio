@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Link from "react-scroll/modules/components/Link";
 
 export function Intro2() {
     const fadeIn = {
@@ -49,7 +50,7 @@ export function Intro2() {
                 whileHover={{}} 
                 transition={{duration: 2,
                 repeat: Infinity,
-                repeatType: "reverse",}} >About Me</motion.button>
+                repeatType: "reverse",}} ><Link to="about" smooth={true}>ABOUT ME</Link></motion.button>
         </motion.div>
     )
 }

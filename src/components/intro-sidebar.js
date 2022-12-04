@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import {IoIosMenu} from "react-icons/io";
+import Link from "react-scroll/modules/components/Link";
 import { Burger } from "./Burger";
 
 export function IntroSidebar() {
@@ -15,7 +16,6 @@ export function IntroSidebar() {
         <div className="intro-sidebar"> 
         <p className="portfolio-title">MK</p>
         <div className="intro-menu"> 
-            
             <motion.div 
             className="line1" 
             animate={{paddingBottom: menuOpen ? "25vh" : "33vh"}}
@@ -30,9 +30,15 @@ export function IntroSidebar() {
                     animate="animate"
                     exit="exit"
                     >
-                        <motion.li initial={{opacity: .7}} whileHover={{opacity: 1}}>ABOUT</motion.li>
-                        <motion.li initial={{opacity: .7}} whileHover={{opacity: 1}}>PROJECTS</motion.li>
-                        <motion.li initial={{opacity: .7}} whileHover={{opacity: 1}}>CONTACT</motion.li>
+                        <motion.li initial={{opacity: .7}} whileHover={{opacity: 1}}>
+                            <Link to="about" smooth={true}>ABOUT</Link>
+                        </motion.li>
+                        <motion.li initial={{opacity: .7}} whileHover={{opacity: 1}}>
+                            <Link to="projects" smooth={true}>PROJECTS</Link>
+                        </motion.li>
+                        <motion.li initial={{opacity: .7}} whileHover={{opacity: 1}}>
+                            <Link to="contact" smooth={true}>CONTACT</Link>
+                        </motion.li>
                     </motion.ul> : null}
                     
                 </AnimatePresence>

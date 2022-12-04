@@ -1,6 +1,7 @@
 import { AnimatePresence, motion, useDragControls, useMotionValue, useTransform } from "framer-motion"
 import { useEffect, useState } from "react"
 import {BsChevronRight} from "react-icons/bs"
+import Link from "react-scroll/modules/components/Link"
 
 export function Card() {
     const [cards, setCards] = useState([{cardID: 1}, {cardID: 2},])
@@ -98,7 +99,9 @@ export function Card() {
                 </motion.a>
             </AnimatePresence>
             <AnimatePresence>
+            <Link to="projects" smooth={true}>
             <motion.div className="intro-read-more">
+
                 <motion.div initial={{y: 0}} animate={{y: [0, -10, 10, -5, 5, 0]}} transition={{repeat: "Infinity", type: "spring", repeatDelay: 2, duration: 2}}><BsChevronRight></BsChevronRight></motion.div>
                 <motion.div className="read-more-text" initial="initial" whileHover="move">
                         <motion.p variants={textAnimation} custom={1} >R</motion.p>
@@ -113,6 +116,7 @@ export function Card() {
                         <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: .5, yoyo:Infinity}} className="text-line"></motion.div>
                     </motion.div>
             </motion.div>
+            </Link>
             </AnimatePresence>
         </motion.div>
     )

@@ -18,6 +18,9 @@ export function Main() {
     target: ref,
     offset: ["end end", "start start"]
     });
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      }
 
     useEffect(() => {
     return scrollYProgress.onChange(() => {
