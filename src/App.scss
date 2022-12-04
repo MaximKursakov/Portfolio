@@ -1,0 +1,509 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Libre+Baskerville:wght@400;700&display=swap');
+
+$blue-dark : #437FC7;
+$blue-light : #6DAFFE;
+$grey : #EDF6FF;
+$brown-dark : #a46c47;
+// $brown-dark : #b38229;
+$brown-light : #FFCC6E;
+$text-color : #323537;
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin position-center {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    left: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'League Spartan', sans-serif;
+    background-color: white;
+    color: $text-color;
+    font-weight: 300;
+}
+
+.intro-body {
+    top: 300vh;
+    margin-top: auto
+}
+
+.intro-container {
+    @include flex-center();
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.intro-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 5%;
+    margin-left: 3%;
+    justify-content: center;
+    .portfolio-title {
+        margin: 0;
+        font-weight: bold;
+        letter-spacing: 4px;
+        color: $text-color;
+        font-size: 2rem;
+        text-align: center;
+        padding-bottom: 50%;
+    }
+    .intro-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 85%;
+        position: relative;
+        .navMenu {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            .navLinks {
+                z-index: 2;
+                list-style: none;
+                text-align: center;
+                padding-left: 2%;
+                li {
+                    cursor: pointer;
+                    padding: 20% 0;
+                    font-size: 1.3rem;
+                    font-weight: 300;
+                }
+            }
+            .burger {
+                cursor: pointer;
+                position: absolute;
+                margin: 0 auto;
+                scale: .3;
+                z-index: 1;
+            }
+        }
+        .line1, .line2 {
+            position: absolute;
+            border-left: 1px solid $text-color;
+            margin-left: 3%;
+        }
+        .line1 {
+            top: 0;
+        }
+        .line2 {
+            justify-self: flex-end;
+            margin-top: auto;
+            bottom: 0;
+        }
+        
+        
+    }
+}
+
+
+
+
+
+.intro {
+    width: 95vw;
+    height: 90vh;
+    overflow: hidden;   
+    position: relative;
+}
+
+
+
+.intro-hero {
+    width: 100%;
+    height: 90vh;
+    position: relative;
+}
+
+.scroll {
+    position: absolute;
+    bottom: 0;
+    left: 75vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    color: white;
+    z-index: 0;
+    p {
+        margin: 0;
+        margin-bottom: 20px;
+        font-size: .8rem;
+        transform: rotate(-90deg);
+        z-index: 0;
+        color: white;
+    }
+    div {
+        height: 35px;
+        width: .5px;
+        background-color: $grey;
+    }
+}
+
+.bird {
+    position: absolute;
+    top: 40%;
+    bottom: 0%;
+    left: 70%;
+    right: 25%;
+}
+
+.welcome {
+    @include position-center();
+    @include flex-center();
+    height: 100vh;
+    width:30vw;
+    margin: 0 auto 0 36.8%;
+    flex-direction: column;
+    font-size: 10rem;
+    font-weight: 900;
+}
+
+.welcome-top, .welcome-bottom {
+    @include flex-center();
+    height: 200px;
+    width: 40vw;
+}
+
+circle {
+    stroke-width: 20px;
+    stroke-linecap:square;
+    fill: transparent;
+  }
+
+
+  .circle {
+      margin-top: auto;
+  }
+
+.intro-part-2 {
+    @include position-center();
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1%;
+    width: 40%;
+    height: 100%;
+    margin: auto 5% auto auto;
+    *{
+       text-align: left;
+       margin: 0;
+    }
+    h2 {
+        font-size: 4rem;
+        font-weight: 900;
+        color: $grey;
+    }
+    .welcome-text {
+        font-size: 3rem;
+        font-weight: 900;
+        color: $grey;
+    }
+    .greeting {
+        display: flex;
+        width: auto;
+        gap: 10%;
+        .name {
+            color: $blue-light;
+            text-shadow: 2px 0 $grey, -2px 0 $grey, 0 2px $grey, 0 -2px $grey,
+            1px 1px $grey, -1px -1px $grey, 1px -1px $grey, -1px 1px $grey;
+            width: auto;
+            display: flex;
+            
+            p {
+                font-size: 4rem;
+                font-weight: 900;
+            }
+            .text-line {
+                align-self: flex-start;
+                border-left: 2px solid $grey;
+                height: 80%;
+                margin-left: 3%;
+            }
+        }
+    }
+    h3 {
+        font-size: 1rem;
+        font-weight: 900;
+        color: $blue-dark;
+        text-align: center;
+        padding: 5px 10px;
+        background-color: white;
+        margin-top: 10px 0;
+    }
+    .welcome-info {
+        margin: 40px 0;
+        color: $grey;
+        font-size: 1.5rem;
+    }
+    button {
+        cursor: pointer;
+        width: 20%;
+        background-color: transparent;
+        border: none;
+        color: $grey;
+        font-family: league spartan;
+        font-size: 1.3rem;
+        text-align: center;
+        padding: 15px 10px;
+        width: 200px;
+        border-radius: 100px;
+        border: solid $grey 3px;
+        z-index: 2;
+    }
+}
+
+.card-container {
+    @include position-center();
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    height: 50%;
+    z-index: 1;
+    container-type: inline-size;
+    h2{
+        width: 50%;
+        margin: auto 0 auto 15%;
+        font-size: 5cqi;
+        cursor:default ;
+    }
+}
+
+.intro-read-more {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+    margin: 0 5% 0 0;
+    text-align: end;
+    font-size: 5cqi;
+    margin-left: auto;
+    svg, .read-more-text {
+        cursor: pointer;
+    }
+}
+.read-more-text {
+    display: flex;
+}
+.text-half {
+    margin-left: 5%;
+}
+
+.card {
+    min-width: 300px;
+    max-width: 450px;
+    width: 30%;
+    aspect-ratio: 2 / 1;
+    background-repeat: none;
+    background-position: center;
+    background-size:cover;
+    position: absolute;
+    cursor: move;
+    cursor: grab;
+    border-radius: 20px;
+}
+
+.card:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+.main-container {
+}
+
+.intro-background {
+    height: 200vh;
+}
+.main {
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    width: 70vw;
+    height: 80vh;
+    margin: 0 auto;
+    padding: 10% 0;
+    gap: 10%;
+    .about-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 60%;
+    }
+    img {
+        min-width: 300px;
+        width: 100%;
+        // aspect-ratio: 1/1;
+        overflow: hidden;
+        border: solid $blue-dark 5px;
+        border-radius: 50%;
+        background-color: $grey;
+    }
+    h2 {
+        margin: 0;
+        font-weight: 500;
+        
+    }
+    h3 {
+        font-size: 3rem;
+        margin: 0;
+        font-weight: 900;
+    }
+    p {
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin: 0;
+    }
+}
+
+.wave {
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    background-color: $blue-dark;
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(101% + 1.3px);
+    height: 214px;
+}
+
+.wave .shape-fill {
+    fill: #FFFFFF;
+}
+
+.projects-container {
+    width: 100%;
+    @include flex-center();
+    flex-direction: column;
+    background: linear-gradient(180deg, hsla(213, 54%, 52%, 1) 0%, rgb(68, 194, 208) 50%, rgb(67, 126, 199) 100%);
+    .projects-header {
+        font-size: 5em;
+        color: $grey;
+        cursor: default;
+    }
+}
+
+
+.projects-odd, .projects-even {
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    color: $grey;
+    
+    .project-image {
+        min-width: 400px;
+        max-width: 900px;
+        width: 30%;
+        aspect-ratio: 2 / 1;
+        background-repeat: none;
+        background-position: center;
+        background-size:cover;
+        border-radius: 25px;
+    }
+    
+    .project-info {
+        align-self: flex-start;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        min-width: 400px;
+        width: 25%;
+        max-width: 600px;
+        font-size: clamp(.8rem, 1cqi, 2rem) ;
+        aspect-ratio: 1.5 / 1;
+        padding: 3%;
+        h2 {
+            margin: 0;
+            font-size: 1em;
+        }
+        h3 {
+            margin: 0;
+            font-size: 2em;
+        }
+        p {
+            margin: 0;
+            line-height: 1.5em;
+            font-weight: 300;
+            color: white;
+        }
+        ul {
+            display: flex;
+            justify-content: space-evenly;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .project-buttons {
+            display: flex;
+            gap: 5%;
+        }
+        a {
+            text-decoration:none ;
+            font-size: 1em;
+            font-family: League Spartan ;
+            color: $grey;
+            font-weight: 500;
+            padding: 2%;
+            border: solid $grey 1px;
+            background-color: transparent;
+        }
+    }
+}
+
+.projects-even .project-info {
+    left: 0;
+    border-right: none;
+}
+
+.projects-even {
+    flex-direction: row-reverse;
+}
+
+.contact-container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(160deg, $blue-dark 50%,  $grey 50%);
+    h2, h3 {
+        padding-left: 5%;
+        font-size: 6rem;
+        margin: 0;
+        color: $grey;
+    }
+    h2 {
+        padding-top: 10vw;
+    }
+    h3 {
+        width: 50%;
+        margin: 0;
+        color: rgb(22, 21, 22);
+    }
+}
