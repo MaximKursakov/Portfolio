@@ -41,7 +41,7 @@ export function Intro2() {
                 </motion.div>
             </motion.div>
             <motion.h3 variants={fadeIn} custom={1.6}>FRONTEND DEVELOPER</motion.h3>
-            <motion.p className="welcome-info" variants={fadeIn} custom={1.9}>I'm a Frontend Developer with a huge passion for bringing great UIs into existence through solid and scalable code.</motion.p>
+            <motion.p className="welcome-info" variants={fadeIn} custom={1.9}>Frontend Developer from Munich.</motion.p>
             {/* <motion.img variants={fadeIn} custom={2} src="/images/Avatar.svg"></motion.img> */}
             <motion.button  
             onClick={scrollAbout}

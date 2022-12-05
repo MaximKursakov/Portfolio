@@ -31,7 +31,7 @@ export function Projects() {
         title: "Project 3", subtitle: "Personal Website", imageTitle:"Project2", techstack: ["HTML", "CSS", "REACT", "FRAMER-MOTION"], websiteLink: "", codeLink: "https://github.com/MaximKursakov/Portfolio", id: 3, description: "With my Portfolio I my wanted to bring in more life and creativity into my website through its design and the usage of animations.Those are beeing used more often while stil keeping the Design simple and clean."
     },
     {
-        title: "Project 4", subtitle: "DistractLess", imageTitle:"Project3", techstack: [], websiteLink: "", codeLink: "", id: 4, description: "With my Portfolio I my wanted to bring in more life and creativity into my website through its design and the usage of animations.Those are beeing used more often while stil keeping the Design simple and clean."
+        title: "Project 4", subtitle: "DistractLess", imageTitle:"Project3", techstack: [], websiteLink: "", codeLink: "", id: 4, description: "In Progress: Chrome extension which adds aids to block off distractions such as: Blocking whole websites during a certain time period or after defined amount of usage, blocking parts of youtube such as the recommended or the comment section etc."
     }]
 
 
