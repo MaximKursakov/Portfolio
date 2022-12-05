@@ -66,8 +66,6 @@ export function Card() {
             <motion.h2>WORK</motion.h2>
             <AnimatePresence>
                     <motion.a 
-                        // href="https://maximkursakov.github.io/shop"
-                        // target="_blank" 
                         key={cardPosition}
                         initial={{scale: 0,  y: -100, opacity: 0}}
                         animate={{ scale: 1, y: 0, opacity: 1 }}
