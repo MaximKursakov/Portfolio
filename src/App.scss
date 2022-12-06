@@ -108,6 +108,36 @@ body {
     }
 }
 
+.intro-sidebar-phone {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 0%;
+    width: 100%;
+    height: 10%;
+    z-index: 2;
+    .burger {
+        cursor: pointer;
+        scale: .3;
+        z-index: 1;
+    }
+    .navLinks-Phone {
+        padding: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        list-style: none;
+        gap: 10%;
+        li {
+            cursor: pointer;
+        }
+    }
+}
+
 
 
 
@@ -616,4 +646,13 @@ circle {
         }
     }
     
+}
+
+@media (max-width: 480px) {
+    .intro-sidebar {
+        display: none;
+    }
+    .intro-sidebar-phone {
+        visibility: visible;
+    }
 }

@@ -14,7 +14,7 @@ export function Intro1 ({introLevel}) {
             }
           };
         },
-        exit: {x : "-100vw", transition: {duration: 1}}
+        exit: {x : "-180vw", transition: {duration: 1.5}}
       };
 
       const strokeColor = "#1C1B20"

@@ -9,9 +9,10 @@ export function IntroSidebar() {
     const linkAnimation = {
         initial : {opacity: 0, scale: 0},
         animate: {opacity:1, scale: 1 , transition: {duration: .3}},
-        exit: {opacity: 0, scale: 0}
+        exit: {opacity: 0, scale: 0, transition: {duration: .3}}
     }
     return(
+        <>
         <div className="intro-sidebar"> 
         <p className="portfolio-title">MK</p>
         <div className="intro-menu"> 
@@ -41,7 +42,7 @@ export function IntroSidebar() {
                     </motion.ul> : null}
                     
                 </AnimatePresence>
-                <Burger menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+                <Burger menuOpen={menuOpen} setMenuOpen={setMenuOpen} xOffset={"400%"}/>
             </div>
             <motion.div 
             className="line2" 
@@ -50,5 +51,30 @@ export function IntroSidebar() {
             ></motion.div>
         </div>
         </div>
+        <div className="intro-sidebar-phone">
+        <AnimatePresence>
+            {menuOpen ? 
+                    <motion.ul className="navLinks-Phone"
+                    variants={linkAnimation}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    >
+                        <AnimatePresence>
+                        <motion.li initial={{x: 200, opacity: 0}} animate={{x: 0, opacity: 1}} transition={{duration: .5, delay: 0}}>
+                            <Link to="about" smooth={true}>ABOUT</Link>
+                        </motion.li>
+                        </AnimatePresence>
+                        <motion.li initial={{x: 150, opacity: 0}} animate={{x: 0, opacity: 1}} transition={{duration: .5, delay: .1}}>
+                            <Link to="projects" smooth={true}>PROJECTS</Link>
+                        </motion.li>
+                        <motion.li initial={{x: 100, opacity: 0}} animate={{x: 0, opacity: 1}} transition={{duration: .5, delay: .2}}>
+                            <Link to="contact" smooth={true}>CONTACT</Link>
+                        </motion.li>
+                    </motion.ul> : null}
+                </AnimatePresence>
+                <Burger menuOpen={menuOpen} setMenuOpen={setMenuOpen} xOffset="0%"/>
+        </div>
+        </>
     )
 } 

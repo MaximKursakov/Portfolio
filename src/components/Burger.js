@@ -1,12 +1,12 @@
 import { AnimatePresence, motion } from "framer-motion";
 
-export function Burger ({menuOpen, setMenuOpen}) {
+export function Burger ({menuOpen, setMenuOpen, xOffset}) {
     return(
         <>
             <motion.div 
                     className="burger" 
                     onClick={() => setMenuOpen(!menuOpen)}
-                    animate={{x :menuOpen ? "400%" : "0%"}}
+                    animate={{x :menuOpen ? xOffset : "0%"}}
                     transition={{duration: .3}}
                     >
                        <svg width="57" height="41" viewBox="0 0 57 41" fill="none" xmlns="http://www.w3.org/2000/svg">
