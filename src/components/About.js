@@ -2,8 +2,8 @@ import {MdOutlineWavingHand} from "react-icons/md"
 
 export function About() {
     return(
-        <div className="about-container" name="about">
-            <img src="./images/Avatar.svg" alt="avatar"></img>
+        <div className="about-container" >
+            <img src="./images/Avatar.svg" name="about" alt="avatar"></img>
             <div className="about-info">
                 <h2>ABOUT ME</h2>
                 <div>

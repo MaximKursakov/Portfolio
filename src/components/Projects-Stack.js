@@ -1,13 +1,10 @@
-import { AnimatePresence, motion, useDragControls, useMotionValue, useTransform } from "framer-motion"
+import { AnimatePresence, motion, useDragControls, useMotionValue, useTransform, useVelocity } from "framer-motion"
 import { useEffect, useState } from "react"
 import {BsChevronRight} from "react-icons/bs"
 import Link from "react-scroll/modules/components/Link"
 
 export function Card() {
     const [cards, setCards] = useState([{cardID: 1}, {cardID: 2},])
-    let x = useMotionValue(0)
-    const rotateZ = useTransform(x, [-200, 0, 200], [-45, 0, 45])
-    const scale = useTransform(x, [-200, 0, 200], [.5, 1, .5])
     const [grabPosition, setGrabPosition] = useState(0)
     const [cardPosition, setCardPosition] = useState(0)
     const [moveCard, setMoveCard] = useState(false)
@@ -37,8 +34,9 @@ export function Card() {
     }
 }
 
-    function handleGrabEnd(endPosition) {
-        if(grabPosition - endPosition > 100) {
+    function handleGrabEnd(endPosition, info) {
+        if(grabPosition.x - endPosition.x > 100 || info.velocity.x <= -500) {
+            console.log(info.velocity.x)
             setMoveCard("-20vw")
             setTimeout(() => {
                 if(cardPosition === cards.length) setCardPosition(0)
@@ -46,7 +44,8 @@ export function Card() {
                 
             }, 1);
         }
-        else if( endPosition - grabPosition > 200) {
+        else if( endPosition.x - grabPosition.x > 200 || info.velocity.x >= 500) {
+            console.log(info.velocity.x)
             setMoveCard("20vw")
             setTimeout(() => {
                 if(cardPosition === cards.length) setCardPosition(0)
@@ -75,9 +74,9 @@ export function Card() {
                             damping: 20,
                             opacity: { duration: 0.2 },
                         }}
-                        style={{backgroundImage: `url(./images/Project${cardPosition}.png)`, zIndex: 2}}
-                        onDragStart={(e) => setGrabPosition(e.x)}
-                        onDragEnd={(e) => handleGrabEnd(e.x)}
+                        style={{ backgroundImage: `url(./images/Project${cardPosition}.png)`, zIndex: 2}}
+                        onDragStart={(e) => setGrabPosition(e)}
+                        onDragEnd={(e, info) => handleGrabEnd(e, info)}
                         exit={{x : moveCard, opacity: 0, scale: 0, transition:{duration: .4}}}
                         drag="x" 
                         dragConstraints={{ left: 0, right: 0 }}
