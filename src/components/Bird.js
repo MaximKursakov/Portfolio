@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import { useRef, useState } from "react"
 
 export function Bird({introLevel, color, visibility}) {
     const birdMovement = {
@@ -32,8 +33,31 @@ export function Bird({introLevel, color, visibility}) {
             rotateY: introLevel >= 3 ? 180 : 0
         }
     }
+
+    const [mousePositionY, setMousePositionY] = useState()
+    const [mousePositionX, setMousePositionX] = useState()
+    const [mouseHovering, setMouseHovering] = useState(false)
+
+    function getMousePosition(event) {
+        if(!visibility) {
+            setMousePositionY(event.pageY)
+            setMousePositionX(event.pageX)
+        }
+    }
+    console.log(mousePositionY)
+    const ref = useRef()
+    console.log(ref)
     return (
-        <div className="bird">
+        <> 
+        {mouseHovering ?
+            <div ref={ref} className="bird-hover" style={{position: "absolute", left: mousePositionX, top: mousePositionY}}>
+                hey
+            </div> : null}
+        <div className="bird"
+        onMouseMove={(e) => getMousePosition(e)}
+        onMouseOver={() => setMouseHovering(true)}
+        onMouseOut={() => setMouseHovering(false)}>
+            
         <motion.svg 
                 initial="initial"
                 variants={birdMovement}
@@ -68,5 +92,6 @@ export function Bird({introLevel, color, visibility}) {
                     </g>
                 </motion.svg>
                 </div>
+                </>
     )
 }
