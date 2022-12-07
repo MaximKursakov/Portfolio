@@ -1,5 +1,5 @@
-import { motion } from "framer-motion"
-import { useRef, useState } from "react"
+import { AnimatePresence, motion, useMotionValue, useTransform } from "framer-motion"
+import { useRef, useState, useTransition } from "react"
 
 export function Bird({introLevel, color, visibility}) {
     const birdMovement = {
@@ -33,36 +33,55 @@ export function Bird({introLevel, color, visibility}) {
             rotateY: introLevel >= 3 ? 180 : 0
         }
     }
+    
+    const hoverBox = useRef()
 
     const [mousePositionY, setMousePositionY] = useState()
     const [mousePositionX, setMousePositionX] = useState()
     const [mouseHovering, setMouseHovering] = useState(false)
 
     function getMousePosition(event) {
-        if(!visibility) {
-            setMousePositionY(event.pageY)
-            setMousePositionX(event.pageX)
-        }
+
+            setMousePositionY(event.clientY - hoverBox.current.clientHeight / 2 - 50)
+            setMousePositionX(event.pageX - hoverBox.current.clientWidth / 2)
+            document.body.style.cursor = 'none';
     }
-    console.log(mousePositionY)
-    const ref = useRef()
-    console.log(ref)
+    function handleMouseOut() {
+        setMouseHovering(false)
+        document.body.style.cursor = "pointer";
+    }
+    
+    const birdWidth = 185
+    const birdHeight = 194
     return (
         <> 
-        {mouseHovering ?
-            <div ref={ref} className="bird-hover" style={{position: "absolute", left: mousePositionX, top: mousePositionY}}>
-                hey
-            </div> : null}
-        <div className="bird"
+        <AnimatePresence>
+            {mouseHovering ?
+                <motion.div
+                ref={hoverBox}
+                className="bird-hover" 
+                initial={{ position: "absolute", left: mousePositionX, top: mousePositionY, visibility: "hidden", scale: 0, opacity: 0}}
+                animate={{left: mousePositionX, top: mousePositionY, visibility: "visible", scale: 1, opacity: .9}}
+                exit={{scale: 0, opacity: 0}}>
+                </motion.div> : null}
+            </AnimatePresence>
+        <motion.div 
+        style={{width: birdWidth, height: birdHeight}}
+        className="bird bird-copy"
+        variants={birdMovement}
+        initial="initial"
+        animate="fly"
         onMouseMove={(e) => getMousePosition(e)}
         onMouseOver={() => setMouseHovering(true)}
-        onMouseOut={() => setMouseHovering(false)}>
+        onMouseLeave={handleMouseOut}>
             
+        </motion.div>
+        <div className="bird" >
         <motion.svg 
                 initial="initial"
                 variants={birdMovement}
                 animate={["hover", "rotate", "rotateBack", "visibility",  "fly", "turn"]}
-                width="185" height="194" viewBox="0 0 185 194" fill="none" xmlns="http://www.w3.org/2000/svg">
+                width={birdWidth} height={birdHeight} viewBox="0 0 185 194" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="Frame 1">
                         <rect x="0.5" y="0.5" width="181" height="187" fill="transparent"/>
                         <motion.path 
