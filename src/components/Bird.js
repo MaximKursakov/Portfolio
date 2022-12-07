@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, useMotionValue, useTransform } from "framer-motion"
 import { useRef, useState, useTransition } from "react"
 
-export function Bird({introLevel, color, visibility}) {
+export function Bird({mainIsInView ,introLevel, color, visibility}) {
     const birdMovement = {
         initial: {
             left: "70%", right: "25%"
@@ -41,15 +41,23 @@ export function Bird({introLevel, color, visibility}) {
     const [mouseHovering, setMouseHovering] = useState(false)
 
     function getMousePosition(event) {
-
-            setMousePositionY(event.clientY - hoverBox.current.clientHeight / 2 - 50)
+        if (!mainIsInView) {
+            setMousePositionY(event.clientY - (hoverBox.current.clientHeight/ 2 + 50))
             setMousePositionX(event.pageX - hoverBox.current.clientWidth / 2)
             document.body.style.cursor = 'none';
+        }  
+    }
+
+    function handleMouseOver() {
+        if (!mainIsInView) setMouseHovering(true)
     }
     function handleMouseOut() {
-        setMouseHovering(false)
-        document.body.style.cursor = "pointer";
+        if (!mainIsInView) {
+            setMouseHovering(false)
+            document.body.style.cursor = "default";
+        }
     }
+    console.log(hoverBox)
     
     const birdWidth = 185
     const birdHeight = 194
@@ -61,8 +69,10 @@ export function Bird({introLevel, color, visibility}) {
                 ref={hoverBox}
                 className="bird-hover" 
                 initial={{ position: "absolute", left: mousePositionX, top: mousePositionY, visibility: "hidden", scale: 0, opacity: 0}}
-                animate={{left: mousePositionX, top: mousePositionY, visibility: "visible", scale: 1, opacity: .9}}
+                animate={{left: mousePositionX, top: mousePositionY, visibility: "visible", scale: 1, opacity: 1}}
                 exit={{scale: 0, opacity: 0}}>
+                    <h2>Why is there a bird on my screen?</h2>
+                    <p>People say you should bring some personality into your portfolio. I like origami. And thats an origami bird. Fantastic, right?...right??</p>
                 </motion.div> : null}
             </AnimatePresence>
         <motion.div 
@@ -72,7 +82,7 @@ export function Bird({introLevel, color, visibility}) {
         initial="initial"
         animate="fly"
         onMouseMove={(e) => getMousePosition(e)}
-        onMouseOver={() => setMouseHovering(true)}
+        onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseOut}>
             
         </motion.div>

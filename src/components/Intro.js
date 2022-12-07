@@ -20,8 +20,8 @@ export function Intro ({introLevel, blackBirdVisibility, whiteBirdVisibility, ma
                     >
                     <div className="intro">
                         <IntroSidebar></IntroSidebar>
-                        <Bird introLevel={introLevel} visibility={blackBirdVisibility} color="#6DAFFE"></Bird>
-                        <Bird introLevel={introLevel} visibility={whiteBirdVisibility} color="#EDF6FF"></Bird>     
+                        <Bird mainIsInView={mainIsInView} introLevel={introLevel} visibility={blackBirdVisibility} color="#6DAFFE"></Bird>
+                        <Bird mainIsInView={mainIsInView} introLevel={introLevel} visibility={whiteBirdVisibility} color="#EDF6FF"></Bird>     
                         <AnimatePresence> 
                             {introLevel === 1 ?
                             <Intro1 introLevel={introLevel}/>
