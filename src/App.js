@@ -1,10 +1,10 @@
+import { BrowserRouter, Route, Router } from 'react-router-dom';
 import './App.scss';
-import { Intro } from './components/Intro';
 import { Main } from './components/Main';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Main></Main>
     </div>
   );

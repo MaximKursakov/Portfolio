@@ -676,3 +676,33 @@ circle {
         visibility: visible;
     }
 }
+
+.origami {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $grey;
+    gap: 3rem;
+    margin: 0 auto;
+    font-size: 2rem;
+    .origami-header {
+        margin-top: 3rem;
+    }
+    .origami-image {
+        max-width: 600px;
+        aspect-ratio: 1.6 / 1;
+        margin-right: 3rem;
+    }
+    .creasepattern-image {
+        max-width: 600px;
+        aspect-ratio: 1 / 1;
+        // height: 60vh;
+    }
+    .origami-1, .origami-2, .origami-3 {
+        gap: 3rem;
+    }
+    .origami-3 {
+        justify-content: center;
+    }
+}
